@@ -59,4 +59,36 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+const readlineSync = require("readline-sync");
+
+function printTable(number) {
+    console.log(`Multiplication Table for ${number}:`);
+
+    for (let i = 1; i <= 12; i++) {
+        console.log(`${number} x ${i} = ${number * i}`);
+    }
+}
+
+function printTablesUpToN(n) {
+    if (n <= 0) {
+        console.log("Error: Number must be greater than 0.");
+        return;
+    }
+
+    for (let i = 1; i <= n; i++) {
+        printTable(i);
+        console.log("---------------------------");
+    }
+}
+
+function main() {
+    const number = readlineSync.questionInt("Enter a number: ");
+    printTable(number);
+
+    const n = readlineSync.questionInt("Enter a number N: ");
+    printTablesUpToN(n);
+}
+
+main();
+
 
